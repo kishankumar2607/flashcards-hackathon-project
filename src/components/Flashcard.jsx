@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { RotateCw, Lightbulb } from 'lucide-react';
 import { getMemoryTip } from '../utils/gemini';
 
-export function Flashcard({ card, isFlipped, onFlip }) {
+export default function Flashcard({ card, isFlipped, onFlip }) {
   const [memoryTip, setMemoryTip] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
