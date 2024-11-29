@@ -2,6 +2,8 @@
 
 # Flashcards for Vocabulary Learning
 
+Deployed here: https://flashcard-helloworld.netlify.app/
+
 ## Overview
 This application is designed to create a set of **20 visually appealing and effective flashcards** for teaching vocabulary in a chosen language. With creative themes and engaging visuals, the app makes vocabulary learning **fun and educational**.
 
