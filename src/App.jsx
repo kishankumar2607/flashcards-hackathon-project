@@ -5,6 +5,8 @@ import Header from "./components/Header"; // Import Header
 import Footer from "./components/Footer"; // Import Footer
 import FlashcardDeck from "./components/FlashcardDeck";
 import { GoogleGenerativeAI } from "@google/generative-ai";
+import ContactUs from "./components/ContactUs";
+import About from "./components/About";
 
 const FlashcardGenerator = () => {
   const [flashcards, setFlashcards] = useState([]);
@@ -95,6 +97,8 @@ function App() {
         <main className="flex-grow">
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<ContactUs />} />
             <Route path="/flashcards" element={<FlashcardGenerator />} />
           </Routes>
         </main>
