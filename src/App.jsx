@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Home from './components/Home';
-import Header from './components/Header'; // Import Header
-import Footer from './components/Footer'; // Import Footer
-import Flashcard from './components/Flashcard'; // Import About
-import { GoogleGenerativeAI } from '@google/generative-ai';
+import React, { useState, useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from "./components/Home";
+import Header from "./components/Header"; // Import Header
+import Footer from "./components/Footer"; // Import Footer
+import FlashcardDeck from "./components/FlashcardDeck";
+import { GoogleGenerativeAI } from "@google/generative-ai";
 
 const FlashcardGenerator = () => {
   const [flashcards, setFlashcards] = useState([]);
@@ -12,7 +12,9 @@ const FlashcardGenerator = () => {
   const [error, setError] = useState("");
 
   const generateFlashcards = async (language, difficulty, count) => {
-    const genAI = new GoogleGenerativeAI("AIzaSyCrXbKEfXrbv8QsouwuK4GBhihrjSwbjE4");
+    const genAI = new GoogleGenerativeAI(
+      "AIzaSyCrXbKEfXrbv8QsouwuK4GBhihrjSwbjE4"
+    );
 
     const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
@@ -34,9 +36,9 @@ const FlashcardGenerator = () => {
         .replace(/json/g, "") // Remove unwanted formatting
         .replace(/^\s*[\[\{]/, "[") // Ensure the JSON array starts cleanly
         .replace(/[\}\]]\s*$/, "]")
-.trim();
+        .trim();
 
-        console.log(cleanedText);
+      console.log(cleanedText);
 
       return JSON.parse(cleanedText);
     } catch (error) {
@@ -65,7 +67,9 @@ const FlashcardGenerator = () => {
   }, []);
 
   if (loading) {
-    return <div className="text-center text-gray-500">Loading flashcards...</div>;
+    return (
+      <div className="text-center text-gray-500">Loading flashcards...</div>
+    );
   }
 
   if (error) {
@@ -77,11 +81,8 @@ const FlashcardGenerator = () => {
   }
 
   return (
-    <div className="max-w-4xl mx-auto py-8 px-4 bg-gray-800 rounded-lg shadow-md">
-      <h1 className="text-2xl font-bold text-white mb-4">Generated Flashcards</h1>
-      {flashcards.map(card => {
-return       <Flashcard key={card.id} card={card} />
-      })}
+    <div className="max-w-4xl mx-auto py-8 px-4 rounded-lg shadow-md">
+      <FlashcardDeck cards={flashcards} />
     </div>
   );
 };

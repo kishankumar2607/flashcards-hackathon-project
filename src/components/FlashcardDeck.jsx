@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
-import { Flashcard } from './Flashcard';
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import Flashcard from "./Flashcard";
 
-export function FlashcardDeck({ cards }) {
+export default function FlashcardDeck({ cards }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isFlipped, setIsFlipped] = useState(false);
 
@@ -29,24 +29,24 @@ export function FlashcardDeck({ cards }) {
           disabled={currentIndex === 0}
           className={`p-2 rounded-full ${
             currentIndex === 0
-              ? 'text-gray-400 cursor-not-allowed'
-              : 'text-indigo-600 hover:bg-indigo-100'
+              ? "text-gray-400 cursor-not-allowed"
+              : "text-indigo-600 hover:bg-indigo-100"
           }`}
         >
           <ChevronLeft size={24} />
         </button>
-        
+
         <span className="text-indigo-600 font-medium">
           {currentIndex + 1} / {cards.length}
         </span>
-        
+
         <button
           onClick={goToNext}
           disabled={currentIndex === cards.length - 1}
           className={`p-2 rounded-full ${
             currentIndex === cards.length - 1
-              ? 'text-gray-400 cursor-not-allowed'
-              : 'text-indigo-600 hover:bg-indigo-100'
+              ? "text-gray-400 cursor-not-allowed"
+              : "text-indigo-600 hover:bg-indigo-100"
           }`}
         >
           <ChevronRight size={24} />
