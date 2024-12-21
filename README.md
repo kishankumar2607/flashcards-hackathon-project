@@ -29,8 +29,3 @@ Built using **React** and **Gemini**, this project was created as part of a Hack
 - [Istiyak Tailor](https://www.linkedin.com/in/istiyak-tailor/)  
 - [Bibin Tom Joseph](https://www.linkedin.com/in/bibintomj/)  
  
-## How to Run the Project
-1. Clone this repository.
-   ```bash
-   git clone https://github.com/bibintomj/hackathon_Helloworld_LanguageFlashcards
-   cd hackathon_Helloworld_LanguageFlashcards
